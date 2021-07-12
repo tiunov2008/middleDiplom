@@ -13,4 +13,5 @@ import smoothScroll from './modules/smoothScroll';
 document.addEventListener('DOMContentLoaded', () => {
     headerModal();
     smoothScroll();
+    servicesModal();
 });
