@@ -10,4 +10,6 @@ import sliderCarousel from './modules/sliderCarousel';
 import sliderServices from './modules/sliderServices';
 import smoothScroll from './modules/smoothScroll';
 
-
+document.addEventListener('DOMContentLoaded', () => {
+    headerModal();
+});
