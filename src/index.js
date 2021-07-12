@@ -14,4 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     headerModal();
     smoothScroll();
     servicesModal();
+    const date = new Date();
+    countTimer(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + 2}`);
 });
