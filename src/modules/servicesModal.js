@@ -4,13 +4,11 @@ const servicesModal = () => {
 
     document.body.addEventListener('click', e => {
         const target = e.target;
-
         if (target.classList.contains('services-modal__close')) {
             e.preventDefault();
             modal.style.display = 'none';
             modalOverlay.style.display = 'none';
-        } else {
-            console.log();
+        } else if (target.closest('.service-button') !== null) {
             const targetModal = target.closest('.service-button');
             if (targetModal.classList.contains('service-button')) {
                 modal.style.display = 'block';
@@ -18,7 +16,7 @@ const servicesModal = () => {
             }
         }
     });
-    
+
 };
 
 export default servicesModal;

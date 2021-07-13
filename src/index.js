@@ -10,10 +10,14 @@ import sliderCarousel from './modules/sliderCarousel';
 import sliderServices from './modules/sliderServices';
 import smoothScroll from './modules/smoothScroll';
 
+
 document.addEventListener('DOMContentLoaded', () => {
     headerModal();
     smoothScroll();
     servicesModal();
+    applicationForm(document.querySelector('#form1'));
+    applicationForm(document.querySelector('#form2'));
     const date = new Date();
-    countTimer(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + 2}`);
+    countTimer(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + 2}`, true);
+    countTimer(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + 2}`, false);
 });
