@@ -39,6 +39,9 @@ const applicationForm = form => {
             for (const val of formData.entries()) {
                 body[val[0]] = val[1];
             }
+            if (elementsForm.filter(item => item.value === 'Балконы')) {
+                body['total'] = document.getElementById('calc-total').value;
+            }
             postData(body)
                 .then(response => {
                     if (response.status !== 200) throw new Error(`Status network not 200`);

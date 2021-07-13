@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     headerModal();
     smoothScroll();
     servicesModal();
+    sliderServices();
+    calc();
     applicationForm(document.querySelector('#form1'));
     applicationForm(document.querySelector('#form2'));
     const date = new Date();
