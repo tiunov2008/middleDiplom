@@ -1596,10 +1596,7 @@ input.error {
   margin: 0 auto;
 }
 
-.benefits__item {
-  width: 100%;
-  max-width: 185px;
-}
+
 
 .benefits-arrows {
   display: flex;
