@@ -1340,6 +1340,12 @@ p.services-image_mobile {
   .offer-utp {
     width: 100%;
   }
+  .services-content .services-item-active-1{
+    transform: translate(-50%, -50%) !important;
+  }
+  .services-content .services-item-active-2{
+    opacity: 0 !important;
+  }
 }
 @media (max-width: 480px) {
   #header {
