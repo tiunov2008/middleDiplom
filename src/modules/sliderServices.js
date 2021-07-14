@@ -33,7 +33,6 @@ const sliderServices = () => {
     window.addEventListener('resize', () => {
         if (document.body.clientWidth > 576) {
             responsive = true;
-            console.log(responsive);
         } else {
             responsive = false;
             if (document.querySelector('.services-item-active-2')) {

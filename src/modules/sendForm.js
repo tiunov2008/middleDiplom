@@ -1,6 +1,6 @@
 let error = false;
 
-const applicationForm = form => {
+const sendForm = form => {
     const elementsForm = [...form.elements].filter(item => item.tagName.toLowerCase() !== 'button' &&
     item.type !== 'button');
     elementsForm.forEach(item => {
@@ -13,6 +13,7 @@ const applicationForm = form => {
         });
     });
 
+
     const errorMessage = 'Что то пошло не так...',
         loadMessage = 'Загрузка...',
         successMessage = 'Спасибо! Мы скоро с вами свяжимся!';
@@ -24,38 +25,41 @@ const applicationForm = form => {
         },
         body: JSON.stringify(body)
     });
-    const statusMessage = document.createElement('div');
-    statusMessage.style.cssText = 'font-size: 1.5rem; color: #000 !important;';
     form.addEventListener('submit', event => {
         event.preventDefault();
         if (error) {
             return;
         } else {
             form.querySelector('button').disabled = 'true';
-            form.appendChild(statusMessage);
-            statusMessage.textContent = loadMessage;
+            document.querySelector('#responseMessage').style.display = 'block';
+            document.querySelector('.overlay').style.display = 'block';
+            document.querySelector('.overlay').style.zIndex = '1';
+            document.querySelector('.modal-content').textContent = loadMessage;
             const formData = new FormData(form);
             const body = {};
             for (const val of formData.entries()) {
                 body[val[0]] = val[1];
             }
-            if (elementsForm.filter(item => item.value === 'Балконы')) {
+            if (elementsForm.filter(item => item.value === 'Балконы') && document.getElementById('calc-total')) {
                 body['total'] = document.getElementById('calc-total').value;
             }
             postData(body)
                 .then(response => {
                     if (response.status !== 200) throw new Error(`Status network not 200`);
-                    statusMessage.textContent = successMessage;
+                    document.querySelector('.modal-content').textContent = successMessage;
+
                     setTimeout(() => {
-                        statusMessage.remove();
+                        document.querySelector('#responseMessage').style.display = 'none';
+                        document.querySelector('.overlay').style.display = 'none';
                         form.querySelector('button').removeAttribute('disabled');
                     }, 3000);
                     form.reset();
                 })
-                .catch(error => {
-                    statusMessage.textContent = errorMessage;
+                .catch(() => {
+                    document.querySelector('.modal-content').textContent = errorMessage;
                     setTimeout(() => {
-                        statusMessage.remove();
+                        document.querySelector('#responseMessage').style.display = 'none';
+                        document.querySelector('.overlay').style.display = 'none';
                         form.querySelector('button').removeAttribute('disabled');
 
                     }, 3000);
@@ -107,7 +111,6 @@ class Validator {
                 return method.every(item => validatorMethod[item[0]](elem, this.pattern[item[1]]));
             }
         } else {
-            console.warn('Передайте методы');
             return true;
         }
     }
@@ -206,7 +209,25 @@ const valid2 = new Validator({
         ],
     },
 });
+const valid3 = new Validator({
+    selector: '#form3',
+    pattern: {
+        name: /[A-Za-zА-Яа-яЁё]{2,}/,
+        phone: /^((8|\+7)[- ]?)?(\(?\d{3}\)?[- ]?)?[\d\- ]{7,16}$/,
+    },
+    method: {
+        'form3-name': [
+            ['notEmpty'],
+            ['pattern', 'name'],
+        ],
+        'form3-phone': [
+            ['notEmpty'],
+            ['pattern', 'phone'],
+        ],
+    },
+});
 valid1.init();
 valid2.init();
+valid3.init();
 
-export default applicationForm;
+export default sendForm;

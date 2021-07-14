@@ -1,6 +1,6 @@
 'use strict';
 
-import applicationForm from './modules/applicationForm';
+import sendForm from './modules/sendForm';
 import calc from './modules/calc';
 import countTimer from './modules/countTimer';
 import documents from './modules/documents';
@@ -17,8 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
     servicesModal();
     sliderServices();
     calc();
-    applicationForm(document.querySelector('#form1'));
-    applicationForm(document.querySelector('#form2'));
+    document.querySelector('.fancyClose').addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector('#responseMessage').style.display = 'none';
+        document.querySelector('.overlay').style.display = 'none';
+    });
+    documents();
+    sendForm(document.querySelector('#form1'));
+    sendForm(document.querySelector('#form2'));
+    sendForm(document.querySelector('#form3'));
     const date = new Date();
     countTimer(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + 2}`, true);
     countTimer(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + 2}`, false);
