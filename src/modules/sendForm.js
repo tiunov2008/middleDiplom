@@ -52,6 +52,7 @@ const sendForm = form => {
                         document.querySelector('#responseMessage').style.display = 'none';
                         document.querySelector('.overlay').style.display = 'none';
                         form.querySelector('button').removeAttribute('disabled');
+                        document.querySelector('.header-modal').style.display = 'none';
                     }, 3000);
                     form.reset();
                 })
