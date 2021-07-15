@@ -781,14 +781,17 @@ p.services-image_mobile {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 .document-overlay {
-  background: url("../images/zoom.png") no-repeat center
-    rgba(79, 104, 110, 0.42);
+  background: url(../images/zoom.png) center center no-repeat rgba(79, 104, 110, 0.42);
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  width: 200px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
   opacity: 0;
+}
+.document{
+  opacity: 1 !important;
 }
 .document-inner:hover .document-overlay {
   opacity: 1;
