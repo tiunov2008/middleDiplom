@@ -21,8 +21,12 @@ const documents = () => {
         const div = document.createElement('div');
         div.className = 'modal_documents';
         div.innerHTML = `
-    <img src="${src}" style=" height: 90%;
-    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) !important;">`;
+    <div style=" height: 90%;
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) !important;">
+        <img src="${src}" style=" height: 90%;">
+        <span style=" width: 20px; height: 20px; font-size: 30px; color: #fff; cursor: pointer;
+        position: fixed; top: 0; right: 0;" title="Close" class="documents-modal__close">x</span>
+    </div>`;
         document.body.append(div);
         document.querySelector('.overlay').style.display = 'block';
     };
@@ -38,7 +42,8 @@ const documents = () => {
                 showModal(target.previousElementSibling.src);
             }
         }
-        if (target === document.querySelector('.overlay')) {
+        if (target === document.querySelector('.overlay') ||
+        target === document.querySelector('.documents-modal__close')) {
             closeModal();
         }
     });

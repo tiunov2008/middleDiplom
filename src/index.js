@@ -4,8 +4,7 @@ import sendForm from './modules/sendForm';
 import calc from './modules/calc';
 import countTimer from './modules/countTimer';
 import documents from './modules/documents';
-import headerModal from './modules/headerModal';
-import servicesModal from './modules/servicesModal';
+import modal from './modules/modal';
 import SliderСarousel from './modules/sliderCarousel';
 import sliderServices from './modules/sliderServices';
 import smoothScroll from './modules/smoothScroll';
@@ -13,9 +12,9 @@ import reviews from './modules/reviews';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    headerModal();
+    modal('services-modal', 'service-button');
     smoothScroll();
-    servicesModal();
+    modal('header-modal', 'button');
     sliderServices();
     calc();
     reviews();
