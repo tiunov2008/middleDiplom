@@ -9,6 +9,7 @@ import servicesModal from './modules/servicesModal';
 import SliderСarousel from './modules/sliderCarousel';
 import sliderServices from './modules/sliderServices';
 import smoothScroll from './modules/smoothScroll';
+import reviews from './modules/reviews';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     servicesModal();
     sliderServices();
     calc();
+    reviews();
     document.querySelector('.fancyClose').addEventListener('click', e => {
         e.preventDefault();
         document.querySelector('#responseMessage').style.display = 'none';
