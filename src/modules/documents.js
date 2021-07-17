@@ -28,21 +28,19 @@ const documents = () => {
         position: fixed; top: 0; right: 0;" title="Close" class="documents-modal__close">x</span>
     </div>`;
         document.body.append(div);
-        document.querySelector('.overlay').style.display = 'block';
+        document.querySelector('.overlay2').style.display = 'block';
     };
     const closeModal = () => {
         document.querySelector('.modal_documents').remove();
-        document.querySelector('.overlay').style.display = 'none';
+        document.querySelector('.overlay2').style.display = 'none';
     };
     document.body.addEventListener('click', e => {
         const target = e.target;
-        if (target.closest('.document') !== null) {
-            const targetModal = target.closest('.document');
-            if (targetModal.classList.contains('document')) {
-                showModal(target.previousElementSibling.src);
-            }
+        if (target.closest('.document-overlay') !== null) {
+            showModal(target.previousElementSibling.src);
         }
-        if (target === document.querySelector('.overlay') ||
+
+        if (target === document.querySelector('.overlay2') ||
         target === document.querySelector('.documents-modal__close')) {
             closeModal();
         }

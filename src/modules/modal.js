@@ -5,7 +5,8 @@ const modal = (modalSelector, btnSelector) => {
     document.body.addEventListener('click', e => {
         const target = e.target;
 
-        if (target.classList.contains(modalSelector + '__close')) {
+        if (target.classList.contains(modalSelector + '__close') ||
+        target === modalOverlay) {
             e.preventDefault();
             modal.style.display = 'none';
             modalOverlay.style.display = 'none';

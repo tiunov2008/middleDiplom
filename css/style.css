@@ -1604,7 +1604,7 @@ input.error {
   color: rgba(0, 0, 0, 0.35);
 }
 
-.overlay {
+.overlay, .overlay2 {
   display: none;
   position: fixed;
   top: 0;

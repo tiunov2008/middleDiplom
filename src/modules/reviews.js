@@ -87,7 +87,6 @@ const reviews = () => {
                 if (i === 6) {
                     i = 0;
                 }
-                console.log(elems[i]);
 
                 reviewsContainer.querySelector('.comments-container').append(elems[i]);
 
