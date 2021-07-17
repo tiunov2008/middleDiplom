@@ -733,6 +733,10 @@ p.services-image_mobile {
 .review-margin-bottom {
   margin-bottom: 80px;
 }
+.review-margin-bottom:last-child{
+  margin-bottom: 0px;
+}
+
 #about {
   background-color: #466a78;
   color: #fff;
